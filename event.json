@@ -1,1 +1,1 @@
-{ "httpMethod": "GET", "path": "/resource", "headers": {}, "queryStringParameters": { "zip": "01","county":"Hampden County","latLong":"42.37, -72.52","radius":20 } }
+{ "httpMethod": "GET", "path": "/resource", "headers": {}, "queryStringParameters": { "zip": "01","county":"Hampden County","latitude":"42.37","longitude":"-72.52","radius":20 } }

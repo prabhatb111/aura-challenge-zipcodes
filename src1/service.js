@@ -2,18 +2,21 @@ const data = require('./data.json');
 
 const find = (filter) => {
     // Sample filters
-    // { "zip": "01","county":"Hampden County","latitude":"42.37","longitude":"-72.52","radius":20 }
+    //{ "zip": "002","primary_city":"Amherst","latLong":"42.37, -72.52","radius":100 }
     const radius = (filter.radius)?filter.radius:100;
     const items = data.filter(item => {
         let flag = true;
-        if(filter.latitude && filter.longitude){
-            let distanceCount = distance(filter.latitude, filter.longitude, item.latitude, item.longitude, "M");
-            if(distanceCount > radius ){
-                flag = false;  
-            }
-        }
         for (let key in filter) {
-            if ( key !=='latitude' && key!=='longitude' && item[key] && item[key].indexOf(filter[key]) == -1 ) {
+            if(key == 'latLong'){
+                const latLong= filter[key];
+                const latLongArray = latLong.split(",");
+                const lat = latLongArray[0].trim();
+                const lng = latLongArray[1].trim();
+                let distanceCount = distance(lat, lng, item.latitude, item.longitude, "M");
+                if(distanceCount > radius ){
+                    flag = false;  
+                }
+            }else if (item[key] && item[key].indexOf(filter[key]) == -1 ) {
                 flag = false;
             }
         }
