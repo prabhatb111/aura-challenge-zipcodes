@@ -16,6 +16,7 @@
   "scripts": {
     "format:fix": "prettier --write **/*.{js,ts,md}",
     "test": "jest",
-    "locally": "node -e \"console.log(require('./src/index').handler(require('./event.json')));\""
+    "locally": "node -e \"console.log(require('./src/index').handler(require('./events/event.json')));\"",
+    "post-locally": "node -e \"console.log(require('./src/index').handler(require('./events/post_event.json')));\""
   }
 }

@@ -1,0 +1,8 @@
+{
+    "httpMethod": "POST",
+    "path": "/resouce",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": { "zip": "01","county":"Hampden County","latitude":"42.37","longitude":"-72.52","radius":20 }
+  }
